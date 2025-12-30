@@ -220,7 +220,7 @@ sedona_notes/
 **Part 2:**
 - Apache Spark
 - Apache Sedona
-- PySedona / Scala
+- PySedona / Scala / R (SparkR)
 - Spark SQL & Streaming
 
 ---

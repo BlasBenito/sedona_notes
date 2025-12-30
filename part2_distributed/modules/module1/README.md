@@ -199,7 +199,13 @@ pip install apache-sedona
 pyspark --packages org.apache.sedona:sedona-spark-shaded-3.0_2.12:1.5.1,org.datasyslab:geotools-wrapper:1.5.1-28.2
 ```
 
-### Verification
+**Option 4: R with SparkR**
+```r
+install.packages("SparkR")
+# Sedona packages loaded when starting Spark session (see verification below)
+```
+
+### Verification (Python)
 ```python
 from sedona.spark import *
 
@@ -209,6 +215,24 @@ config = SedonaContext.builder() \
 
 sedona = SedonaContext.create(config)
 print("Sedona version:", sedona.version)
+```
+
+### Verification (R)
+```r
+library(SparkR)
+
+# Start Spark with Sedona packages
+sparkR.session(
+  appName = "sedona-test",
+  sparkPackages = c(
+    "org.apache.sedona:sedona-spark-shaded-3.0_2.12:1.5.1",
+    "org.datasyslab:geotools-wrapper:1.5.1-28.2"
+  )
+)
+
+# Test Sedona SQL
+result <- sql("SELECT ST_AsText(ST_Point(0, 0)) as point")
+showDF(result)
 ```
 
 ---
@@ -256,6 +280,41 @@ result = sedona.sql("""
 """)
 
 result.show()
+```
+
+### R Version
+
+```r
+library(SparkR)
+
+# Initialize Sedona
+sparkR.session(
+  appName = 'module1-exercise',
+  master = 'local[*]',
+  sparkPackages = c(
+    "org.apache.sedona:sedona-spark-shaded-3.0_2.12:1.5.1",
+    "org.datasyslab:geotools-wrapper:1.5.1-28.2"
+  )
+)
+
+# Create sample data
+data <- data.frame(
+  name = c("Point 1", "Point 2", "Point 3"),
+  geometry = c("POINT (30 10)", "POINT (25 15)", "POINT (35 12)")
+)
+
+df <- createDataFrame(data)
+
+# Register as temp view
+createOrReplaceTempView(df, "points")
+
+# Spatial query
+result <- sql("
+  SELECT name, ST_AsText(ST_GeomFromWKT(geometry)) as geom
+  FROM points
+")
+
+showDF(result)
 ```
 
 ### Expected Output

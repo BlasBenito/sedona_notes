@@ -28,7 +28,9 @@ Complete **[Part 1: SedonaDB](../part1_sedonadb/README.md)** or have equivalent 
 
 **[Exercises and Final Project](exercises/README.md)**
 
-**[Quick Reference Guide](QUICK_REFERENCE.md)**
+**[Quick Reference Guide (Python)](QUICK_REFERENCE.md)**
+
+**[R Users Guide](R_GUIDE.md)** - Complete guide for using Sedona from R
 
 ---
 
