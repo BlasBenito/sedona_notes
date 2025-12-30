@@ -3,6 +3,20 @@ Complete installation instructions for the Apache Sedona course (Parts 1 & 2)
 
 ---
 
+## ⚠️ Important: Externally-Managed Environment
+
+**Modern Debian/Ubuntu systems (Python 3.11+) prevent global pip installations.**
+
+You'll see this error:
+```
+error: externally-managed-environment
+× This environment is externally managed
+```
+
+**Solution:** Always use a virtual environment (required on Debian/Ubuntu, recommended everywhere).
+
+---
+
 ## System Requirements
 
 ### Minimum
@@ -16,22 +30,42 @@ Complete installation instructions for the Apache Sedona course (Parts 1 & 2)
 - **Java**: 8 or 11 (required for Part 2)
 - **R**: 4.0 or higher (optional, for R users)
 
+**For Debian/Ubuntu users:**
+```bash
+sudo apt install python3-full python3-venv python3-pip
+```
+
 ---
 
 ## Quick Start (Recommended)
 
 ### For Python Users
 
+**Step-by-step:**
+
 ```bash
-# Create virtual environment
+# 1. Install prerequisites (Debian/Ubuntu only)
+sudo apt install python3-full python3-venv python3-pip
+
+# 2. Create virtual environment
 python3 -m venv ~/sedona-env
+
+# 3. Activate virtual environment
 source ~/sedona-env/bin/activate  # On Windows: sedona-env\Scripts\activate
 
-# Upgrade pip
+# 4. Upgrade pip
 pip install --upgrade pip
 
-# Install for both parts
+# 5. Install for both parts
 pip install duckdb apache-sedona pyspark jupyter pandas geopandas folium
+
+# 6. Verify installation
+python -c "import duckdb; import pyspark; print('✓ All packages installed')"
+```
+
+**Remember:** Always activate the environment before using:
+```bash
+source ~/sedona-env/bin/activate
 ```
 
 ### For R Users
@@ -233,11 +267,18 @@ set -e
 
 echo "=== Installing Apache Sedona Course Dependencies ==="
 
-# 1. Check system requirements
+# 1. Install system prerequisites (Debian/Ubuntu)
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    echo "Installing Python prerequisites for Debian/Ubuntu..."
+    sudo apt update
+    sudo apt install -y python3-full python3-venv python3-pip
+fi
+
+# 2. Check system requirements
 echo "Checking system requirements..."
 python3 --version || { echo "Python 3.8+ required"; exit 1; }
 
-# 2. Create virtual environment
+# 3. Create virtual environment
 echo "Creating virtual environment..."
 python3 -m venv ~/sedona-env
 source ~/sedona-env/bin/activate
@@ -409,6 +450,62 @@ In Jupyter, select kernel: **Sedona Course**
 
 ## Troubleshooting
 
+### Issue: "externally-managed-environment" error
+
+**Problem:**
+```
+error: externally-managed-environment
+× This environment is externally managed
+```
+
+**This affects:** Debian, Ubuntu, and derivatives with Python 3.11+
+
+**Solution 1: Use Virtual Environment (Recommended)**
+```bash
+# Create virtual environment
+python3 -m venv ~/sedona-env
+
+# Activate it
+source ~/sedona-env/bin/activate
+
+# Now pip works normally
+pip install apache-sedona
+```
+
+**Solution 2: Use pipx for tools**
+```bash
+# Install pipx
+sudo apt install pipx
+pipx ensurepath
+
+# Install with pipx (for command-line tools only)
+pipx install jupyter
+
+# Note: For this course, use virtual environment instead
+```
+
+**Solution 3: System packages (Limited)**
+```bash
+# Only for packages available in apt
+sudo apt install python3-pandas python3-numpy
+
+# Note: Sedona packages NOT available via apt
+# Must use virtual environment
+```
+
+**❌ NOT Recommended:**
+```bash
+# DO NOT DO THIS - breaks system Python
+pip install --break-system-packages apache-sedona
+```
+
+**Why this happens:**
+- PEP 668: Prevents conflicts between pip and system package manager
+- Protects system Python from breaking
+- Virtual environments are the safe solution
+
+---
+
 ### Issue: Java not found
 
 ```bash
@@ -425,8 +522,19 @@ brew install openjdk@11
 
 ### Issue: "No module named 'pyspark'"
 
+**First, make sure virtual environment is activated:**
+```bash
+source ~/sedona-env/bin/activate
+```
+
+**Then install:**
 ```bash
 pip install pyspark==3.4.0
+```
+
+**To verify activation:**
+```bash
+which python  # Should show ~/sedona-env/bin/python
 ```
 
 ### Issue: Memory errors in Spark
