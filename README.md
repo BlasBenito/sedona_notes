@@ -1,193 +1,142 @@
-# Apache Sedona: Geospatial Big Data Processing
-## Comprehensive 10-Hour Course
+# Apache Sedona: Complete Geospatial Data Processing Course
+## 20 Hours - From Database to Distributed Systems
 
-Welcome to the complete Apache Sedona course! This repository contains everything you need to master distributed geospatial processing at scale.
-
----
-
-## Course Overview
-
-Apache Sedona is a powerful distributed computing framework for processing massive geospatial datasets. This course takes you from beginner to advanced practitioner through 7 comprehensive modules, hands-on exercises, and real-world case studies.
-
-**What You'll Learn:**
-- Process billions of geometries across distributed clusters
-- Perform spatial queries and joins at scale
-- Optimize geospatial workloads for production
-- Build real-time spatial analytics pipelines
-- Create interactive geospatial visualizations
-- Apply best practices from industry use cases
-
-**Prerequisites:**
-- Basic knowledge of Apache Spark (RDDs, DataFrames, SQL)
-- Understanding of geospatial concepts (coordinates, projections)
-- Programming experience in Python, Scala, or Java
-- Familiarity with SQL
-
-**Total Duration:** 10 hours of content + hands-on exercises
+Master geospatial data processing from single-node databases to distributed cluster computing.
 
 ---
 
 ## Course Structure
 
-### [Module 1: Introduction to Apache Sedona](modules/module1/README.md)
-**Duration:** 1 hour
+This comprehensive course is divided into two parts:
 
-Learn what Sedona is, its architecture, and how it compares to other geospatial tools. Set up your development environment and run your first spatial query.
+### **[Part 1: SedonaDB](part1_sedonadb/README.md)** - 10 Hours
+**Single-Node Geospatial Database**
 
-**Topics:**
-- What is Apache Sedona?
-- Architecture overview
-- Use cases and applications
-- Installation and setup
-- First spatial query
+Start with SedonaDB, a high-performance embedded spatial database. Learn SQL-based geospatial operations, indexing, and application development on a single machine.
 
----
-
-### [Module 2: Spatial Data Fundamentals](modules/module2/README.md)
-**Duration:** 1.5 hours
-
-Master geospatial data types, formats, and coordinate systems. Learn to load and transform spatial data from various sources.
+**Best for:**
+- Data up to several TB
+- Fast analytical queries
+- Embedded applications
+- Learning fundamentals
 
 **Topics:**
-- Geometry types (Point, LineString, Polygon, etc.)
-- Data formats (WKT, WKB, GeoJSON, Shapefile, GeoParquet)
-- Coordinate Reference Systems (CRS)
-- Loading spatial data
-- Data serialization
-
----
-
-### [Module 3: Spatial RDDs and Operations](modules/module3/README.md)
-**Duration:** 1.5 hours
-
-Explore Spatial RDDs and fundamental spatial operations including predicates, transformations, and CRS conversions.
-
-**Topics:**
-- PointRDD, PolygonRDD, LineStringRDD
-- Spatial predicates (contains, intersects, within)
-- Spatial transformations (buffer, union, intersection)
-- CRS transformations
-- RDD operations and caching
-
----
-
-### [Module 4: Spatial Queries and Joins](modules/module4/README.md)
-**Duration:** 2 hours
-
-Master the most critical operations in distributed geospatial processing: spatial queries and joins. Learn optimization strategies for production workloads.
-
-**Topics:**
-- Range queries
-- K-Nearest Neighbors (KNN)
-- Distance queries
-- Spatial joins (point-in-polygon, polygon-polygon)
-- Distance joins
-- Query optimization strategies
-- Sedona SQL functions
-
----
-
-### [Module 5: Spatial Indexing and Partitioning](modules/module5/README.md)
-**Duration:** 1.5 hours
-
-Learn the techniques that enable Sedona to process massive datasets efficiently. Understand indexing structures and partitioning strategies.
-
-**Topics:**
-- Why indexing matters (10-100x speedup)
-- R-Tree and Quad-Tree indexes
-- Spatial partitioning (Grid, KDB-Tree)
-- Building and using indexes
-- Performance analysis
-- Optimization strategies
-
----
-
-### [Module 6: Advanced Analytics and Visualization](modules/module6/README.md)
-**Duration:** 1.5 hours
-
-Explore advanced capabilities including aggregations, clustering, raster processing, visualization, and streaming geospatial data.
-
-**Topics:**
-- Spatial aggregations
-- Heatmap generation
-- Spatial clustering (K-means, DBSCAN)
-- Raster data processing
-- Map visualization
-- Streaming geospatial data
-- Integration with Kepler.gl, DeckGL
-
----
-
-### [Module 7: Real-world Case Studies and Best Practices](modules/module7/README.md)
-**Duration:** 1 hour
-
-Learn from production deployments with three detailed case studies and comprehensive best practices for optimization and deployment.
-
-**Case Studies:**
-1. **Ride-Sharing Zone Analysis** - Real-time demand prediction
-2. **Urban Heat Island Detection** - Environmental analysis at scale
-3. **Retail Location Intelligence** - Site selection optimization
-
-**Best Practices:**
+- Spatial SQL fundamentals
+- Advanced spatial queries
+- Data integration and ETL
 - Performance optimization
+- Application development (Python/R)
 - Production deployment
-- Common pitfalls and solutions
-- Monitoring and debugging
 
 ---
 
-### [Hands-on Exercises and Final Project](exercises/README.md)
+### **[Part 2: Distributed Sedona](part2_distributed/README.md)** - 10 Hours
+**Big Data Geospatial Processing**
 
-Apply your knowledge with practical exercises and a comprehensive final project.
+Scale to billions of geometries with Apache Sedona on Spark. Process massive datasets across distributed clusters with spatial indexing and partitioning.
 
-**Exercises:**
-- Setup verification
-- Data loading challenge
-- Query optimization
-- Real-time geofencing
-- Heatmap generation
+**Best for:**
+- Data > 100GB
+- Billions of geometries
+- Real-time streaming
+- Horizontal scaling
 
-**Final Project:**
-Build a complete Urban Mobility Analysis Platform that processes large-scale transportation data to provide insights for city planning.
+**Topics:**
+- Distributed spatial RDDs
+- Spatial queries and joins at scale
+- Spatial indexing and partitioning
+- Advanced analytics
+- Real-time streaming
+- Production case studies
+
+---
+
+## Learning Path
+
+```
+┌─────────────────────────────────────────┐
+│  Part 1: SedonaDB (10 hours)            │
+│  ├─ Module 1: Introduction              │
+│  ├─ Module 2: Spatial SQL               │
+│  ├─ Module 3: Advanced Queries          │
+│  ├─ Module 4: Data Integration          │
+│  ├─ Module 5: Performance               │
+│  ├─ Module 6: Applications              │
+│  └─ Module 7: Production                │
+└──────────────┬──────────────────────────┘
+               │
+               │ When to scale?
+               │ • Data > 100GB
+               │ • Need distributed processing
+               │
+┌──────────────▼──────────────────────────┐
+│  Part 2: Distributed Sedona (10 hours)  │
+│  ├─ Module 1: Introduction              │
+│  ├─ Module 2: Spatial Data              │
+│  ├─ Module 3: Spatial RDDs              │
+│  ├─ Module 4: Queries and Joins         │
+│  ├─ Module 5: Indexing/Partitioning     │
+│  ├─ Module 6: Advanced Analytics        │
+│  └─ Module 7: Case Studies              │
+└─────────────────────────────────────────┘
+```
 
 ---
 
 ## Quick Start
 
-### 1. Install Apache Sedona
+### Part 1: SedonaDB
 
-**Python (PySedona):**
-```bash
-pip install apache-sedona
+```python
+import duckdb
+
+conn = duckdb.connect(':memory:')
+conn.execute("INSTALL spatial; LOAD spatial;")
+
+# Create spatial data
+conn.execute("""
+    CREATE TABLE locations AS
+    SELECT
+        'New York' as city,
+        ST_Point(-74.006, 40.7128) as location
+""")
+
+# Query
+result = conn.execute("""
+    SELECT city, ST_AsText(location)
+    FROM locations
+""").fetchall()
 ```
 
-**For Spark:**
-```bash
-pyspark --packages org.apache.sedona:sedona-spark-shaded-3.0_2.12:1.5.1,org.datasyslab:geotools-wrapper:1.5.1-28.2
-```
-
-### 2. Verify Installation
+### Part 2: Distributed Sedona
 
 ```python
 from sedona.spark import *
 
-config = SedonaContext.builder() \
-    .appName('sedona-test') \
-    .getOrCreate()
-
+config = SedonaContext.builder().appName('sedona').getOrCreate()
 sedona = SedonaContext.create(config)
 
-# Test spatial query
-result = sedona.sql("""
-    SELECT ST_AsText(ST_Point(30, 10)) as point
+# Create spatial DataFrame
+df = sedona.sql("""
+    SELECT ST_Point(-74.006, 40.7128) as location
 """)
 
-result.show()
+df.show()
 ```
 
-### 3. Start Learning
+---
 
-Begin with [Module 1: Introduction](modules/module1/README.md) and work through the modules sequentially.
+## Prerequisites
+
+### Part 1 (SedonaDB)
+- Basic SQL knowledge
+- Python or R (for application modules)
+- Understanding of geospatial concepts
+
+### Part 2 (Distributed Sedona)
+- **Complete Part 1** or equivalent experience
+- Basic Apache Spark knowledge (helpful)
+- Python or Scala programming
 
 ---
 
@@ -195,141 +144,175 @@ Begin with [Module 1: Introduction](modules/module1/README.md) and work through 
 
 ```
 sedona_notes/
-├── README.md                 # This file
-├── COURSE_OUTLINE.md         # Detailed course outline
-├── modules/                  # Module content
-│   ├── module1/             # Introduction
-│   ├── module2/             # Spatial Data Fundamentals
-│   ├── module3/             # Spatial RDDs
-│   ├── module4/             # Queries and Joins
-│   ├── module5/             # Indexing and Partitioning
-│   ├── module6/             # Advanced Analytics
-│   └── module7/             # Case Studies
-├── exercises/               # Hands-on exercises
-│   └── README.md           # Exercise descriptions
-└── datasets/               # Sample datasets (to be added)
+├── README.md                    # This file
+├── part1_sedonadb/              # Part 1: Database
+│   ├── README.md
+│   ├── COURSE_OUTLINE.md
+│   ├── modules/
+│   │   ├── module1/             # Introduction
+│   │   ├── module2/             # Spatial SQL
+│   │   ├── module3/             # Advanced Queries
+│   │   ├── module4/             # Data Integration
+│   │   ├── module5/             # Performance
+│   │   ├── module6/             # Applications
+│   │   └── module7/             # Production
+│   └── exercises/
+└── part2_distributed/           # Part 2: Distributed
+    ├── README.md
+    ├── COURSE_OUTLINE.md
+    ├── QUICK_REFERENCE.md
+    ├── modules/
+    │   ├── module1/             # Introduction
+    │   ├── module2/             # Spatial Data
+    │   ├── module3/             # Spatial RDDs
+    │   ├── module4/             # Queries & Joins
+    │   ├── module5/             # Indexing
+    │   ├── module6/             # Analytics
+    │   └── module7/             # Case Studies
+    └── exercises/
 ```
 
 ---
 
-## Learning Path
+## Recommended Study Plans
 
-**Beginner Path** (5-6 hours):
-- Modules 1, 2, 3
-- Exercises 1, 2
-- Skip advanced topics
+### **Beginner Path** (12-14 hours)
+- Complete all Part 1 modules
+- Part 1 exercises
+- Skip Part 2 until needed
 
-**Intermediate Path** (8-9 hours):
-- All modules
-- Exercises 1-4
-- Skim case studies
+### **Intermediate Path** (16-18 hours)
+- Complete Part 1 modules
+- Part 1 final project
+- Part 2 modules 1-4
+- Part 2 exercises
 
-**Advanced Path** (10+ hours):
-- All modules in depth
-- All exercises
-- Complete final project
+### **Advanced Path** (20+ hours)
+- Complete all modules in both parts
+- All exercises and projects
 - Bonus challenges
+- Deploy production applications
 
 ---
 
-## Key Concepts Summary
+## What You'll Build
 
-### Spatial Operations
-```python
-# Create geometries
-ST_Point(lon, lat)
-ST_GeomFromWKT(wkt)
-ST_Buffer(geom, distance)
+### Part 1 Projects
+- Restaurant finder application
+- Real estate search platform
+- Urban planning dashboard
 
-# Spatial predicates
-ST_Contains(geom1, geom2)
-ST_Intersects(geom1, geom2)
-ST_Within(geom1, geom2)
+### Part 2 Projects
+- NYC taxi analytics pipeline
+- Urban mobility analysis system
+- Real-time geofencing service
 
-# Measurements
-ST_Distance(geom1, geom2)
-ST_Area(geom)
-ST_Length(geom)
+---
 
-# Transformations
-ST_Transform(geom, target_srid)
-ST_Union(geom1, geom2)
-ST_Intersection(geom1, geom2)
+## Key Technologies
+
+**Part 1:**
+- DuckDB
+- SedonaDB spatial extension
+- Python (duckdb, pandas, fastapi)
+- R (duckdb package)
+
+**Part 2:**
+- Apache Spark
+- Apache Sedona
+- PySedona / Scala
+- Spark SQL & Streaming
+
+---
+
+## When to Use Each Part
+
+### Use SedonaDB (Part 1) when:
+- Data fits on one machine (< 5TB)
+- Need embedded database
+- Fast prototyping
+- Simple deployment
+- Cost-effective single-node processing
+
+### Use Distributed Sedona (Part 2) when:
+- Data > 100GB
+- Processing billions of geometries
+- Need horizontal scaling
+- Real-time streaming required
+- Integration with Spark ecosystem
+
+---
+
+## Learning Outcomes
+
+After completing both parts, you will:
+
+**Technical Skills:**
+- [ ] Build spatial databases with SedonaDB
+- [ ] Write complex spatial SQL queries
+- [ ] Optimize single-node performance
+- [ ] Develop spatial REST APIs
+- [ ] Process TB-scale data on single node
+- [ ] Scale to distributed Spark clusters
+- [ ] Perform spatial joins on billions of geometries
+- [ ] Build spatial indexes and partitioning strategies
+- [ ] Create real-time spatial analytics pipelines
+- [ ] Deploy production geospatial applications
+
+**Strategic Skills:**
+- [ ] Choose appropriate technology for scale
+- [ ] Design efficient spatial schemas
+- [ ] Optimize query performance
+- [ ] Plan migration paths
+- [ ] Make build vs buy decisions
+
+---
+
+## Getting Started
+
+### Installation
+
+**Part 1 (SedonaDB):**
+```bash
+pip install duckdb
 ```
 
-### Performance Optimization
-```python
-# Spatial partitioning
-spatial_rdd.spatialPartitioning(GridType.KDBTREE, 200)
-
-# Indexing
-spatial_rdd.buildIndex(IndexType.RTREE, True)
-
-# Caching
-df.cache()
-
-# Broadcast join
-df.join(broadcast(small_df), condition)
+**Part 2 (Distributed Sedona):**
+```bash
+pip install apache-sedona
 ```
+
+### Begin Learning
+
+1. **Start here:** [Part 1: SedonaDB](part1_sedonadb/README.md)
+2. **Then progress to:** [Part 2: Distributed Sedona](part2_distributed/README.md)
 
 ---
 
 ## Additional Resources
 
-### Official Documentation
-- [Apache Sedona Website](https://sedona.apache.org/)
-- [GitHub Repository](https://github.com/apache/sedona)
-- [API Documentation](https://sedona.apache.org/latest-snapshot/api/javadoc/)
+### Documentation
+- [DuckDB Documentation](https://duckdb.org/docs/)
+- [DuckDB Spatial Extension](https://duckdb.org/docs/extensions/spatial.html)
+- [Apache Sedona Documentation](https://sedona.apache.org/)
+- [Apache Spark Documentation](https://spark.apache.org/docs/latest/)
 
 ### Community
+- [DuckDB GitHub](https://github.com/duckdb/duckdb)
+- [Apache Sedona GitHub](https://github.com/apache/sedona)
 - [Sedona Community Slack](https://sedona-community.slack.com/)
-- [Mailing Lists](https://sedona.apache.org/community/contact/)
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/apache-sedona)
 
-### Datasets
-- [NYC Taxi Data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+### Sample Datasets
+- [NYC Open Data](https://opendata.cityofnewyork.us/)
 - [OpenStreetMap](https://www.openstreetmap.org/)
 - [Natural Earth](https://www.naturalearthdata.com/)
-- [US Census TIGER/Line](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html)
-
-### Related Tools
-- [Apache Spark](https://spark.apache.org/)
-- [GeoPandas](https://geopandas.org/)
-- [PostGIS](https://postgis.net/)
-- [Kepler.gl](https://kepler.gl/)
-- [DeckGL](https://deck.gl/)
-
----
-
-## Assessment and Certification
-
-### Module Quizzes
-Each module includes quiz questions to test your knowledge. Answer keys are provided at the end of each module.
-
-### Hands-on Exercises
-Complete the exercises to gain practical experience. Solutions are available in the `/solutions/` directory.
-
-### Final Project
-The Urban Mobility Analysis Platform project demonstrates mastery of all course concepts. This project can be used as a portfolio piece.
-
-### Learning Outcomes
-
-After completing this course, you will be able to:
-- [ ] Set up and configure Apache Sedona
-- [ ] Load spatial data from multiple formats
-- [ ] Perform spatial queries and joins at scale
-- [ ] Optimize geospatial workloads for production
-- [ ] Build spatial indexes and partitioning strategies
-- [ ] Create spatial visualizations
-- [ ] Process streaming geospatial data
-- [ ] Apply best practices from real-world use cases
-- [ ] Deploy Sedona applications to production clusters
+- [US Census TIGER/Line](https://www.census.gov/geographies/mapping-files.html)
 
 ---
 
 ## Contributing
 
-Found an error or want to improve the course? Contributions are welcome!
+Found an error or want to improve the course?
 
 1. Fork the repository
 2. Create a feature branch
@@ -340,25 +323,23 @@ Found an error or want to improve the course? Contributions are welcome!
 
 ## License
 
-This course material is provided for educational purposes. Apache Sedona is licensed under the Apache License 2.0.
+This course material is provided for educational purposes.
+- Apache Sedona: Apache License 2.0
+- DuckDB: MIT License
 
 ---
 
 ## Acknowledgments
 
-This course was created to help practitioners learn Apache Sedona for distributed geospatial processing. Special thanks to the Apache Sedona community for creating and maintaining this excellent framework.
+This comprehensive course was created to provide a complete learning path from single-node geospatial databases to distributed big data processing. Special thanks to the DuckDB and Apache Sedona communities.
 
 ---
 
-## Getting Started
+## Start Your Journey
 
-Ready to begin? Start with:
+Ready to master geospatial data processing?
 
-**[Course Outline](COURSE_OUTLINE.md)** - Detailed curriculum overview
-
-**[Module 1: Introduction](modules/module1/README.md)** - Begin your learning journey
-
-**[Exercises](exercises/README.md)** - Hands-on practice
+**Begin with:** [Part 1: SedonaDB - Geospatial Database Fundamentals](part1_sedonadb/README.md)
 
 ---
 
